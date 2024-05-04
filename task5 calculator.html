@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            padding: 20px;
+            background-color: rgb(68, 67, 67);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 240px;
+            text-align: center;
+        }
+        .display {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: calc(100% - 10px);
+            height: 40px;
+            font-size: 20px;
+            text-align: right;
+            padding-right: 5px;
+            border: none;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+        }
+        button {
+            height: 40px;
+            font-size: 20px;
+            background-color: #e6e6e6;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #d9d9d5;
+        }
+        .eq {
+            background-color: #fb7c14;
+            grid-column: span 2;
+        }
+        .eq:hover {
+            background-color: #fb7c14;
+        }
+        .last-column {
+            grid-column: span 4;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+            text-decoration: underline;
+        }
+        .heading h1{
+        font-size: 600;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading"><h1  style="color: #fb7c14;">TASK-5</h1>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <div class="display">
+            <input id="result" type="text" disabled>
+        </div>
+        <div class="button">
+            <button onclick="clearresult()">AC</button>
+            <button onclick="deleteresult()">DEL</button>
+            <button onclick="insertvalue('7')">7</button>
+            <button onclick="insertvalue('/')">/</button>
+           
+            <button onclick="insertvalue('8')">8</button>
+            <button onclick="insertvalue('9')">9</button>
+            <button onclick="insertvalue('4')">4</button>
+            <button onclick="insertvalue('*')">*</button>
+          
+            <button onclick="insertvalue('5')">5</button>
+            <button onclick="insertvalue('6')">6</button>
+            <button onclick="insertvalue('1')">1</button>
+            <button onclick="insertvalue('-')">-</button>
+
+            <button onclick="insertvalue('2')">2</button>
+            <button onclick="insertvalue('3')">3</button>
+            <button onclick="insertvalue('00')">00</button>
+            <button onclick="insertvalue('+')">+</button>
+           
+            <button onclick="insertvalue('0')">0</button>
+            <button onclick="insertvalue('.')">.</button>
+            <button class="eq" onclick="calculate()">=</button>
+          
+    </div>
+</div>
+    <script>
+        let result = document.getElementById("result");
+        function insertvalue(value) {
+            result.value += value;
+        }
+        function clearresult() {
+            result.value = "";
+        }
+        function deleteresult() {
+            result.value = result.value.slice(0, -1)
+        }
+        function calculate() {
+            result.value = eval(result.value);
+        }
+    </script>
+</body>
+</html>
